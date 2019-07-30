@@ -1,0 +1,62 @@
+
+[[_definitions]]
+== 定义
+
+[[_user]]
+=== user
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**age** +
+__可选__|年齡 +
+**样例** : `0`|integer (int32)
+|**email** +
+__可选__|电子邮件 +
+**样例** : `"string"`|string
+|**id** +
+__可选__|id +
+**样例** : `0`|integer (int64)
+|**name** +
+__可选__|名字 +
+**样例** : `"string"`|string
+|===
+
+
+[[_ac84df2c73d09727d02dce3e95f66e79]]
+=== 返回信息«List«user»»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**code** +
+__可选__|返回码 +
+**样例** : `"string"`|string
+|**data** +
+__可选__|信息 +
+**样例** : `[ "<<_user>>" ]`|< <<_user,user>> > array
+|**message** +
+__可选__|描述 +
+**样例** : `"string"`|string
+|===
+
+
+[[_7fc848851d4397b4476e7ae42fabba96]]
+=== 返回信息«user»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**code** +
+__可选__|返回码 +
+**样例** : `"string"`|string
+|**data** +
+__可选__|信息 +
+**样例** : `"<<_user>>"`|<<_user,user>>
+|**message** +
+__可选__|描述 +
+**样例** : `"string"`|string
+|===
+
+
+
