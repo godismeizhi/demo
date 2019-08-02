@@ -1,0 +1,296 @@
+
+h2. 路径 {anchor:paths}
+
+h3. /list {anchor:getinfosusingget}
+{noformat}
+GET /tests/list
+{noformat}
+
+
+h4. 说明
+根据url的id来获取用户列表信息
+
+
+h4. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[返回信息«List«user»»|#ac84df2c73d09727d02dce3e95f66e79]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h4. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h4. 生成
+
+* {noformat}*/*{noformat}
+
+
+h4. 标签
+
+* 测试接口
+* 获取用户列表信息2
+
+
+h4. HTTP请求示例
+
+h5. 请求 path
+{code}
+/tests/list
+{code}
+
+
+h4. HTTP响应示例
+
+h5. 响应 200
+{code:language=json}
+{
+  "code" : "string",
+  "data" : [ {
+    "age" : 0,
+    "email" : "string",
+    "id" : 0,
+    "name" : "string"
+  } ],
+  "message" : "string"
+}
+{code}
+
+
+h3. users/{id} {anchor:getinfousingget}
+{noformat}
+GET /tests/users/{id}
+{noformat}
+
+
+h4. 说明
+根据url的id来获取用户详细信息
+
+
+h4. 参数
+
+||类型||名称||说明||类型||
+|*Path*|*id*\\ \\ _必填_||id||integer (int32)|
+|*Query*|*pageNum*\\ \\ _必填_||pageNum||integer (int32)|
+|*Query*|*pageSize*\\ \\ _可选_||pageSize||integer (int32)|
+|*Query*|*version*\\ \\ _可选_||version||number (double)|
+|*Body*|*id2*\\ \\ _可选_||第一个id||string|
+
+
+h4. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[返回信息«user»|#7fc848851d4397b4476e7ae42fabba96]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h4. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h4. 生成
+
+* {noformat}*/*{noformat}
+
+
+h4. 标签
+
+* 测试接口
+* 获取用户详细信息2
+
+
+h4. HTTP请求示例
+
+h5. 请求 path
+{code}
+/tests/users/0
+{code}
+
+
+h5. 请求 query
+{code:language=json}
+{
+  "pageNum" : 0,
+  "pageSize" : 0,
+  "version" : 0.0
+}
+{code}
+
+
+h5. 请求 body
+{code:language=json}
+{ }
+{code}
+
+
+h4. HTTP响应示例
+
+h5. 响应 200
+{code:language=json}
+{
+  "code" : "string",
+  "data" : {
+    "age" : 0,
+    "email" : "string",
+    "id" : 0,
+    "name" : "string"
+  },
+  "message" : "string"
+}
+{code}
+
+
+h3. 获取用户列表信息 {anchor:getinfosusingget_1}
+{noformat}
+GET /users/list
+{noformat}
+
+
+h4. 说明
+根据url的id来获取用户列表信息
+
+
+h4. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[返回信息«List«user»»|#ac84df2c73d09727d02dce3e95f66e79]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h4. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h4. 生成
+
+* {noformat}*/*{noformat}
+
+
+h4. 标签
+
+* 用戶接口
+* 获取用户列表信息2
+
+
+h4. HTTP请求示例
+
+h5. 请求 path
+{code}
+/users/list
+{code}
+
+
+h4. HTTP响应示例
+
+h5. 响应 200
+{code:language=json}
+{
+  "code" : "string",
+  "data" : [ {
+    "age" : 0,
+    "email" : "string",
+    "id" : 0,
+    "name" : "string"
+  } ],
+  "message" : "string"
+}
+{code}
+
+
+h3. 获取用户详细信息 {anchor:getinfousingget_1}
+{noformat}
+GET /users/users/{id}
+{noformat}
+
+
+h4. 说明
+根据url的id来获取用户详细信息
+
+
+h4. 参数
+
+||类型||名称||说明||类型||
+|*Path*|*id*\\ \\ _必填_||id||integer (int32)|
+|*Query*|*pageNum*\\ \\ _必填_||pageNum||integer (int32)|
+|*Query*|*pageSize*\\ \\ _可选_||pageSize||integer (int32)|
+|*Query*|*version*\\ \\ _可选_||version||number (double)|
+|*Body*|*id2*\\ \\ _可选_||第一个id||string|
+
+
+h4. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[返回信息«user»|#7fc848851d4397b4476e7ae42fabba96]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h4. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h4. 生成
+
+* {noformat}*/*{noformat}
+
+
+h4. 标签
+
+* 用戶接口
+* 获取用户详细信息1
+
+
+h4. HTTP请求示例
+
+h5. 请求 path
+{code}
+/users/users/0
+{code}
+
+
+h5. 请求 query
+{code:language=json}
+{
+  "pageNum" : 0,
+  "pageSize" : 0,
+  "version" : 0.0
+}
+{code}
+
+
+h5. 请求 body
+{code:language=json}
+{ }
+{code}
+
+
+h4. HTTP响应示例
+
+h5. 响应 200
+{code:language=json}
+{
+  "code" : "string",
+  "data" : {
+    "age" : 0,
+    "email" : "string",
+    "id" : 0,
+    "name" : "string"
+  },
+  "message" : "string"
+}
+{code}
+
+
+

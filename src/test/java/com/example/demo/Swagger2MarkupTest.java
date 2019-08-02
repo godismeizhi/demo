@@ -23,6 +23,7 @@ public class Swagger2MarkupTest {
 
     /**
      * 生成AsciiDocs格式文档
+     *
      * @throws Exception
      */
     @Test
@@ -31,9 +32,8 @@ public class Swagger2MarkupTest {
         Swagger2MarkupConfig config = new Swagger2MarkupConfigBuilder()
                 .withMarkupLanguage(MarkupLanguage.ASCIIDOC)//设置生成格式
                 .withOutputLanguage(Language.ZH)//设置语言中文还是其他语言
-                .withPathsGroupedBy(GroupBy.TAGS)
+                //.withPathsGroupedBy(GroupBy.TAGS)
                 .withGeneratedExamples()
-                .withoutInlineSchema()
                 .build();
         //设置swagger-api的json来源
         Swagger2MarkupConverter.from(new URL("http://localhost:8080/v2/api-docs"))
@@ -44,6 +44,7 @@ public class Swagger2MarkupTest {
 
     /**
      * 生成Markdown格式文档
+     *
      * @throws Exception
      */
     @Test
@@ -52,7 +53,7 @@ public class Swagger2MarkupTest {
         Swagger2MarkupConfig config = new Swagger2MarkupConfigBuilder()
                 .withMarkupLanguage(MarkupLanguage.MARKDOWN)
                 .withOutputLanguage(Language.ZH)
-                .withPathsGroupedBy(GroupBy.TAGS)
+                //.withPathsGroupedBy(GroupBy.TAGS)
                 .withGeneratedExamples()
                 .withoutInlineSchema()
                 .build();
@@ -62,8 +63,10 @@ public class Swagger2MarkupTest {
                 .build()
                 .toFolder(Paths.get("./docs/markdown/generated"));
     }
+
     /**
      * 生成Confluence格式文档
+     *
      * @throws Exception
      */
     @Test
@@ -72,7 +75,7 @@ public class Swagger2MarkupTest {
         Swagger2MarkupConfig config = new Swagger2MarkupConfigBuilder()
                 .withMarkupLanguage(MarkupLanguage.CONFLUENCE_MARKUP)
                 .withOutputLanguage(Language.ZH)
-                .withPathsGroupedBy(GroupBy.TAGS)
+                //.withPathsGroupedBy(GroupBy.TAGS)
                 .withGeneratedExamples()
                 .withoutInlineSchema()
                 .build();
@@ -85,6 +88,7 @@ public class Swagger2MarkupTest {
 
     /**
      * 生成AsciiDocs格式文档,并汇总成一个文件
+     *
      * @throws Exception
      */
     @Test
@@ -106,6 +110,7 @@ public class Swagger2MarkupTest {
 
     /**
      * 生成Markdown格式文档,并汇总成一个文件
+     *
      * @throws Exception
      */
     @Test

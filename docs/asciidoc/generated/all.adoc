@@ -1,19 +1,27 @@
-= 测试
+= 账户微服务接口文档
 
 
 [[_overview]]
 == 概览
-测试描述
+账户微服务接口文档
 
 
 === 版本信息
 [%hardbreaks]
-__版本__ : 1.0
+__版本__ : 1.0.0
+
+
+=== 联系方式
+[%hardbreaks]
+__名字__ : XXX数据
+__邮箱__ : caoheyang@weds.com.cn
 
 
 === 许可信息
 [%hardbreaks]
-__服务条款__ : http://localhost:8080/
+__许可证__ : Apache 2.0
+__许可网址__ : http://www.apache.org/licenses/LICENSE-2.0.html
+__服务条款__ : null
 
 
 === URI scheme
@@ -24,7 +32,9 @@ __基础路径__ : /
 
 === 标签
 
-* user-controller : 用戶
+* 測試2接口 : 這是一個測試接口
+* 測試接口 : 這是一個測試接口
+* 用戶接口 : 這是一個用戶接口
 
 
 
@@ -32,15 +42,15 @@ __基础路径__ : /
 [[_paths]]
 == 资源
 
-[[_user-controller_resource]]
-=== User-controller
-用戶
+[[_e2e6afef20e041a34cc11f34451999fa]]
+=== 測試2接口
+這是一個測試接口
 
 
-[[_getinfosusingget]]
-==== 获取用户列表信息
+[[_getinfosusingget_1]]
+==== 呵呵
 ....
-GET /users
+GET /tests/list
 ....
 
 
@@ -50,31 +60,157 @@ GET /users
 
 ===== 响应
 
-[options="header", cols=".^2,.^14,.^4"]
+[options="header", cols=".^2a,.^14a,.^4a"]
 |===
 |HTTP代码|说明|类型
-|**200**|OK|<<_ac84df2c73d09727d02dce3e95f66e79,返回信息«List«user»»>>
+|**200**|OK|<<_f5767ae9ae8020a528c6ca178c0c61ee,返回信息«List«用户»»>>
 |**401**|Unauthorized|无内容
 |**403**|Forbidden|无内容
 |**404**|Not Found|无内容
 |===
 
 
-===== 消耗
-
-* `application/json`
-
-
 ===== 生成
 
-* `*/*`
+* `\*/*`
 
 
 ===== HTTP请求示例
 
 ====== 请求 path
 ----
-/users
+/tests/list
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "code" : "string",
+  "data" : [ {
+    "age" : 0,
+    "email" : "string",
+    "id" : 0,
+    "name" : "string"
+  } ],
+  "message" : "string"
+}
+----
+
+
+[[_getinfousingget_1]]
+==== 哈哈
+....
+GET /tests/users/{id}
+....
+
+
+===== 说明
+根据url的id来获取用户详细信息
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Path**|**id** +
+__必填__|id|integer (int32)
+|**Query**|**id2** +
+__可选__|第一个id|string
+|**Query**|**pageNum** +
+__必填__|pageNum|integer (int32)
+|**Query**|**pageSize** +
+__可选__|pageSize|integer (int32)
+|**Query**|**version** +
+__可选__|version|number (double)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_d57d772a636bc9b97c5b0edd7c0fdb19,返回信息«用户»>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/tests/users/0?pageNum=0
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "code" : "string",
+  "data" : {
+    "age" : 0,
+    "email" : "string",
+    "id" : 0,
+    "name" : "string"
+  },
+  "message" : "string"
+}
+----
+
+
+[[_f1b2335fb429e01e97df7abc5b9d2bd6]]
+=== 測試接口
+這是一個測試接口
+
+
+[[_getinfosusingget]]
+==== 呵呵
+....
+GET /tests2/list
+....
+
+
+===== 说明
+根据url的id来获取用户列表信息
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_f5767ae9ae8020a528c6ca178c0c61ee,返回信息«List«用户»»>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/tests2/list
 ----
 
 
@@ -97,9 +233,9 @@ GET /users
 
 
 [[_getinfousingget]]
-==== 获取用户详细信息
+==== 哈哈
 ....
-GET /users/{id}
+GET /tests2/users/{id}
 ....
 
 
@@ -109,48 +245,175 @@ GET /users/{id}
 
 ===== 参数
 
-[options="header", cols=".^2,.^3,.^9,.^4"]
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
 |===
 |类型|名称|说明|类型
-|**Body**|**id** +
-__必填__|用户id|string
+|**Path**|**id** +
+__必填__|id|integer (int32)
+|**Query**|**id2** +
+__可选__|第一个id|string
+|**Query**|**pageNum** +
+__必填__|pageNum|integer (int32)
+|**Query**|**pageSize** +
+__可选__|pageSize|integer (int32)
+|**Query**|**version** +
+__可选__|version|number (double)
 |===
 
 
 ===== 响应
 
-[options="header", cols=".^2,.^14,.^4"]
+[options="header", cols=".^2a,.^14a,.^4a"]
 |===
 |HTTP代码|说明|类型
-|**200**|OK|<<_7fc848851d4397b4476e7ae42fabba96,返回信息«user»>>
+|**200**|OK|<<_d57d772a636bc9b97c5b0edd7c0fdb19,返回信息«用户»>>
 |**401**|Unauthorized|无内容
 |**403**|Forbidden|无内容
 |**404**|Not Found|无内容
 |===
 
 
-===== 消耗
-
-* `application/json`
-
-
 ===== 生成
 
-* `*/*`
+* `\*/*`
 
 
 ===== HTTP请求示例
 
 ====== 请求 path
 ----
-/users/{id}
+/tests2/users/0?pageNum=0
 ----
 
 
-====== 请求 body
+===== HTTP响应示例
+
+====== 响应 200
 [source,json]
 ----
-{ }
+{
+  "code" : "string",
+  "data" : {
+    "age" : 0,
+    "email" : "string",
+    "id" : 0,
+    "name" : "string"
+  },
+  "message" : "string"
+}
+----
+
+
+[[_1975ea2e1796512c2959191831373e5f]]
+=== 用戶接口
+這是一個用戶接口
+
+
+[[_getinfosusingget_2]]
+==== 获取用户列表信息
+....
+GET /users/list
+....
+
+
+===== 说明
+根据url的id来获取用户列表信息
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_f5767ae9ae8020a528c6ca178c0c61ee,返回信息«List«用户»»>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/users/list
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "code" : "string",
+  "data" : [ {
+    "age" : 0,
+    "email" : "string",
+    "id" : 0,
+    "name" : "string"
+  } ],
+  "message" : "string"
+}
+----
+
+
+[[_getinfousingget_2]]
+==== 获取用户详细信息
+....
+GET /users/users/{id}
+....
+
+
+===== 说明
+根据url的id来获取用户详细信息
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Path**|**id** +
+__必填__|id|integer (int32)
+|**Query**|**id2** +
+__可选__|第一个id|string
+|**Query**|**pageNum** +
+__必填__|pageNum|integer (int32)
+|**Query**|**pageSize** +
+__可选__|pageSize|integer (int32)
+|**Query**|**version** +
+__可选__|version|number (double)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_d57d772a636bc9b97c5b0edd7c0fdb19,返回信息«用户»>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/users/users/0?pageNum=0
 ----
 
 
@@ -177,10 +440,10 @@ __必填__|用户id|string
 [[_definitions]]
 == 定义
 
-[[_user]]
-=== user
+[[_1fd02a90c38333badc226309fea6fecb]]
+=== 用户
 
-[options="header", cols=".^3,.^11,.^4"]
+[options="header", cols=".^3a,.^11a,.^4a"]
 |===
 |名称|说明|类型
 |**age** +
@@ -198,10 +461,10 @@ __可选__|名字 +
 |===
 
 
-[[_ac84df2c73d09727d02dce3e95f66e79]]
-=== 返回信息«List«user»»
+[[_f5767ae9ae8020a528c6ca178c0c61ee]]
+=== 返回信息«List«用户»»
 
-[options="header", cols=".^3,.^11,.^4"]
+[options="header", cols=".^3a,.^11a,.^4a"]
 |===
 |名称|说明|类型
 |**code** +
@@ -209,17 +472,17 @@ __可选__|返回码 +
 **样例** : `"string"`|string
 |**data** +
 __可选__|信息 +
-**样例** : `[ "<<_user>>" ]`|< <<_user,user>> > array
+**样例** : `[ "<<_1fd02a90c38333badc226309fea6fecb>>" ]`|< <<_1fd02a90c38333badc226309fea6fecb,用户>> > array
 |**message** +
 __可选__|描述 +
 **样例** : `"string"`|string
 |===
 
 
-[[_7fc848851d4397b4476e7ae42fabba96]]
-=== 返回信息«user»
+[[_d57d772a636bc9b97c5b0edd7c0fdb19]]
+=== 返回信息«用户»
 
-[options="header", cols=".^3,.^11,.^4"]
+[options="header", cols=".^3a,.^11a,.^4a"]
 |===
 |名称|说明|类型
 |**code** +
@@ -227,7 +490,7 @@ __可选__|返回码 +
 **样例** : `"string"`|string
 |**data** +
 __可选__|信息 +
-**样例** : `"<<_user>>"`|<<_user,user>>
+**样例** : <<_1fd02a90c38333badc226309fea6fecb>>|<<_1fd02a90c38333badc226309fea6fecb,用户>>
 |**message** +
 __可选__|描述 +
 **样例** : `"string"`|string
