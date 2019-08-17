@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import java.time.LocalDateTime;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,7 +12,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author bule&fat
- * @since 2019-07-30
+ * @since 2019-08-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -20,20 +21,13 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 姓名
-     */
     private String name;
 
-    /**
-     * 年龄
-     */
     private Integer age;
 
-    /**
-     * 邮箱
-     */
-    private String email;
+    private LocalDateTime createTime;
+
+    private LocalDateTime updateTime;
 
 
 }
