@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/users")
-@Api("用户管理")
+@Api(value = "用户管理", description = "用户管理", tags = "用户")
 public class SysUserController {
 
     @Autowired
