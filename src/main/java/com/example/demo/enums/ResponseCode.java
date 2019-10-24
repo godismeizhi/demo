@@ -1,7 +1,7 @@
 package com.example.demo.enums;
 
 
-public enum ReturnCode {
+public enum ResponseCode {
 
     SUCCESS("200","操作成功");
 
@@ -10,7 +10,7 @@ public enum ReturnCode {
 
     private String message;
 
-    ReturnCode(String code, String message){
+    ResponseCode(String code, String message){
         this.code = code;
         this.message = message;
     }

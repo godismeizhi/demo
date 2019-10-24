@@ -1,7 +1,7 @@
 package com.example.demo.common;
 
 
-import com.example.demo.enums.ReturnCode;
+import com.example.demo.enums.ResponseCode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.apache.commons.lang3.StringUtils;
@@ -22,18 +22,18 @@ public class R<T> {
     }
 
     public static R getInstance() {
-        return getInstance(ReturnCode.SUCCESS);
+        return getInstance(ResponseCode.SUCCESS);
     }
 
-    public static R getInstance(ReturnCode returnCode) {
+    public static R getInstance(ResponseCode returnCode) {
         return getInstance(returnCode, null);
     }
 
     public static <T> R getInstance(T data) {
-        return getInstance(ReturnCode.SUCCESS, data);
+        return getInstance(ResponseCode.SUCCESS, data);
     }
 
-    public static <T> R getInstance(ReturnCode returnCode, T data) {
+    public static <T> R getInstance(ResponseCode returnCode, T data) {
         R r = new R();
         r.setCode(returnCode.getCode());
         r.setMessage(returnCode.getMessage());
@@ -43,7 +43,7 @@ public class R<T> {
 
     public String getCode() {
         if (StringUtils.isEmpty(code)) {
-            code = ReturnCode.SUCCESS.getCode();
+            code = ResponseCode.SUCCESS.getCode();
         }
         return code;
     }
@@ -54,7 +54,7 @@ public class R<T> {
 
     public String getMessage() {
         if (StringUtils.isEmpty(message)) {
-            message = ReturnCode.SUCCESS.getMessage();
+            message = ResponseCode.SUCCESS.getMessage();
         }
         return message;
     }
