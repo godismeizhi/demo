@@ -1,0 +1,16 @@
+package com.example.demo.service;
+
+import com.example.demo.entity.SysRoleMenu;
+import com.baomidou.mybatisplus.extension.service.IService;
+
+/**
+ * <p>
+ * 角色菜单表 服务类
+ * </p>
+ *
+ * @author bule&fat
+ * @since 2019-10-24
+ */
+public interface ISysRoleMenuService extends IService<SysRoleMenu> {
+
+}
