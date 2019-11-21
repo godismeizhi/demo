@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.demo.aspect;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -18,8 +18,9 @@ public class SysLogAspect {
      * 当然，我们也可以通过切点表达式直接指定需要拦截的package,需要拦截的class 以及 method
      * 切点表达式:   execution(...)
      */
-    @Pointcut("execution(public * com.example.demo.controller.*.*(..))")
+    @Pointcut("execution(public * com.example.demo.business.controller.*.*(..))")
     public void logPointCut() {
+
     }
 
     /**

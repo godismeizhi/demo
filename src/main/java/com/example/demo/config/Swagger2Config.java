@@ -24,16 +24,16 @@ public class Swagger2Config implements WebMvcConfigurer {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.example.demo.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.demo.business.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("账户微服务接口文档")
-                .description("账户微服务接口文档")
-                .contact(new Contact("XXX数据", "http://www.weds.com.cn", "caoheyang@weds.com.cn"))
+                .title("用户权限接口文档")
+                .description("用户权限接口文档")
+                .contact(new Contact("权限信息", "http://www.weds.com.cn", "caoheyang@weds.com.cn"))
                 .license("Apache 2.0")
                 .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
                 .version("1.0.0")
