@@ -5,7 +5,7 @@ public enum RedisKey {
 
 
     //渠道缓存
-    USER_USERID_TO_OBJECT("USER:USER:USERID:{USERID}", "渠道名称获取渠道ID", 300),
+    USER_USERID_TO_OBJECT("USER:USER:USERID:{ID}", "用户ID获取用户对象", 300),
     ;
 
 

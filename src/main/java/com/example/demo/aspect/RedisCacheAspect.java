@@ -51,7 +51,6 @@ public class RedisCacheAspect {
         }
 
         RedisKey redisKey = loadCache.redisKey();
-        String[] keyValues = loadCache.keyValues();
 
         Object value = redisService.getValue(redisKey, keyValues);
         log.info("=============获取缓存" + redisKey.getDescription() + ":" + value);

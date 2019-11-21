@@ -12,6 +12,4 @@ import java.lang.annotation.*;
 public @interface LoadCache {
 
     RedisKey redisKey();
-
-    String[] keyValues();
 }
