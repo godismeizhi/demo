@@ -7,7 +7,6 @@ import com.example.demo.common.R;
 import com.example.demo.entity.SysDept;
 import com.example.demo.enums.RedisKey;
 import com.example.demo.service.ISysDeptService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
