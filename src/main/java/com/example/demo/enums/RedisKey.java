@@ -1,13 +1,19 @@
 package com.example.demo.enums;
 
 
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.Map;
+
+@Slf4j
 public enum RedisKey {
 
 
     //渠道缓存
-    USER_USERID_TO_OBJECT("USER:USER:USERID:{ID}", "用户ID获取用户对象", 300),
-    ;
+    USER_USERID_TO_OBJECT("USER:USER:USERID:{id}", "用户ID获取用户对象", 60),
 
+    DEPT_DEPTID_TO_OBJECT("USER:DEPT:DEPTID:{id}", "部门ID获取部门信息", 60),
+    ;
 
     //模板
     private String keyTemplate;
@@ -30,11 +36,17 @@ public enum RedisKey {
 
 
     //获取动态参数后的redisKey
-    public static String getKey(RedisKey redisKey, String... values) {
+    public static String getKey(RedisKey redisKey, Map<String, Object> keyValuesMap) {
 
         String redisKeyResult = redisKey.getKeyTemplate();
-        for (int i = 0; i < values.length; i++) {
-            redisKeyResult = redisKeyResult.replace("{" + i + "}", values[i]);
+        for (Map.Entry<String, Object> keyValue : keyValuesMap.entrySet()) {
+
+            String replaceKey = "{" + keyValue.getKey() + "}";
+            if (redisKeyResult.indexOf(replaceKey) != -1) {
+
+                Object paramValue = keyValue.getValue();
+                redisKeyResult = redisKeyResult.replace(replaceKey, paramValue == null ? "" : paramValue.toString());
+            }
         }
         return redisKeyResult.trim();
     }

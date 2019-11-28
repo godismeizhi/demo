@@ -7,6 +7,7 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @Component
@@ -26,36 +27,37 @@ public class RedisService {
     /**
      * 读缓存
      */
-    public Object getValue(RedisKey redisKey, String... keyValues) {
+    public Object getValue(String key) {
 
-        Object value = valueOperations.get(RedisKey.getKey(redisKey, keyValues));
+        Object value = valueOperations.get(key);
         return value;
     }
 
     /**
      * 设置缓存信息
-     * values包含 keyValues,value
-     * 最后一个值为redis的补充value ，其他value均为key的补充参数
-     *
-     * @param redisKey
      */
-    public void setValue(RedisKey redisKey, String[] keyValues, Object value) {
+    public void setValue(String key, Object value, int seconds) {
 
-        if (redisKey.getSeconds().equals(-1)) {
-            valueOperations.set(RedisKey.getKey(redisKey, keyValues), value);
-        } else {
-            valueOperations.set(RedisKey.getKey(redisKey, keyValues), value, redisKey.getSeconds(), TimeUnit.SECONDS);
-        }
+        valueOperations.set(key, value, seconds, TimeUnit.SECONDS);
+    }
+
+    /**
+     * 设置
+     *
+     * @param key
+     * @param value
+     */
+    public void setValue(String key, Object value) {
+        valueOperations.set(key, value);
     }
 
     /**
      * 删除缓存
      *
      * @param redisKey
-     * @param keyValues
      */
-    public void deleteValue(RedisKey redisKey, String... keyValues) {
-        this.deleteValue(RedisKey.getKey(redisKey, keyValues));
+    public void deleteValue(RedisKey redisKey, Map<String, Object> keyValuesMap) {
+        this.deleteValue(RedisKey.getKey(redisKey, keyValuesMap));
     }
 
     /**

@@ -11,5 +11,5 @@ import java.lang.annotation.*;
 @Inherited
 public @interface LoadCache {
 
-    RedisKey redisKey();
+    RedisKey value();
 }
