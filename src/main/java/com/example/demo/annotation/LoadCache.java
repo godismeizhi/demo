@@ -1,4 +1,4 @@
-package com.example.demo.annotion;
+package com.example.demo.annotation;
 
 import com.example.demo.enums.RedisKey;
 

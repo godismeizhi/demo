@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.business.service;
 
 import com.example.demo.common.R;
 import com.example.demo.entity.SysDept;

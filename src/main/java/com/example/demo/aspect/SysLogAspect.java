@@ -1,15 +1,22 @@
 package com.example.demo.aspect;
 
+import com.example.demo.annotation.LoadCache;
+import com.example.demo.annotation.SysLog;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+
+import java.lang.reflect.Method;
 
 @Slf4j
 @Aspect  // 使用@Aspect注解声明一个切面
 @Configuration
+@Order(1)
 public class SysLogAspect {
 
 
@@ -18,7 +25,8 @@ public class SysLogAspect {
      * 当然，我们也可以通过切点表达式直接指定需要拦截的package,需要拦截的class 以及 method
      * 切点表达式:   execution(...)
      */
-    @Pointcut("execution(public * com.example.demo.business.controller.*.*(..))")
+    //@Pointcut("execution(public * com.example.demo.business.controller.*.*(..))")
+    @Pointcut("@annotation(com.example.demo.annotation.SysLog)")
     public void logPointCut() {
 
     }
@@ -32,11 +40,16 @@ public class SysLogAspect {
      */
     @Around("logPointCut()")
     public Object around(ProceedingJoinPoint point) throws Throwable {
+
+        MethodSignature signature = (MethodSignature) point.getSignature();
+        Method method = signature.getMethod();
+        SysLog sysLog = method.getAnnotation(SysLog.class);
+
         long beginTime = System.currentTimeMillis();
         Object result = point.proceed();
         long time = System.currentTimeMillis() - beginTime;
         try {
-            log.info("===========================请求访问时间:" + time + "");
+            log.info("  " + sysLog.value() + "  执行时间:" + time + "ms");
         } catch (Exception e) {
         }
         return result;

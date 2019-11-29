@@ -1,6 +1,6 @@
 package com.example.demo.aspect;
 
-import com.example.demo.annotion.LoadCache;
+import com.example.demo.annotation.LoadCache;
 import com.example.demo.business.cache.RedisService;
 import com.example.demo.enums.RedisKey;
 import com.example.demo.util.CommonUtils;
@@ -11,6 +11,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
@@ -20,6 +21,7 @@ import java.util.Map;
 @Component
 @Aspect
 @Slf4j
+@Order(2)
 public class RedisCacheAspect {
 
     @Autowired
@@ -30,7 +32,7 @@ public class RedisCacheAspect {
      * 当然，我们也可以通过切点表达式直接指定需要拦截的package,需要拦截的class 以及 method
      * 切点表达式:   execution(...)
      */
-    @Pointcut("@annotation(com.example.demo.annotion.LoadCache)")
+    @Pointcut("@annotation(com.example.demo.annotation.LoadCache)")
     public void pointcut() {
     }
 
