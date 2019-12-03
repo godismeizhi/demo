@@ -29,18 +29,16 @@ public class RedisConfig {
 
         ObjectMapper mapper = new ObjectMapper();
         //设置LOCALDATETIME序列化方式
-        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        mapper.enable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         mapper.registerModule(new JavaTimeModule());
 
         mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
 
         serializer.setObjectMapper(mapper);
-
         template.setValueSerializer(serializer);
 
         //使用StringRedisSerializer来序列化和反序列化redis的key值
-
         template.setKeySerializer(new StringRedisSerializer());
 
         /*hash字符串序列化方法*/

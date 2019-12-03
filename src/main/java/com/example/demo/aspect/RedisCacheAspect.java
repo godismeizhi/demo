@@ -4,6 +4,7 @@ import com.example.demo.annotation.LoadCache;
 import com.example.demo.business.cache.RedisService;
 import com.example.demo.enums.RedisKey;
 import com.example.demo.util.CommonUtils;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -13,7 +14,9 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.Resource;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -91,7 +94,6 @@ public class RedisCacheAspect {
             redisService.setValue(redisKeyStr, value);
             log.info("=============写入缓存 " + redisKey.getDescription() + "   " + redisKeyStr + " " + value);
         }
-
         return value;
     }
 }

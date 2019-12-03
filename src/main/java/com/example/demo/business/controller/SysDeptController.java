@@ -2,11 +2,9 @@ package com.example.demo.business.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.example.demo.annotation.LoadCache;
 import com.example.demo.annotation.SysLog;
 import com.example.demo.common.R;
 import com.example.demo.entity.SysDept;
-import com.example.demo.enums.RedisKey;
 import com.example.demo.business.service.ISysDeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +29,7 @@ public class SysDeptController {
     private ISysDeptService sysDeptService;
 
     @GetMapping("/{id}")
-    @LoadCache(RedisKey.DEPT_DEPTID_TO_OBJECT)
+    //@LoadCache(RedisKey.DEPT_DEPTID_TO_OBJECT)
     @SysLog("获取部门信息")
     public R<SysDept> getSysDept(@PathVariable("id") Integer id) {
 

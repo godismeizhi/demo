@@ -1,6 +1,5 @@
 package com.example.demo.entity;
 
-import java.time.LocalDateTime;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -36,12 +35,12 @@ public class SysDept implements Serializable {
     /**
      * 创建时间
      */
-    private LocalDateTime createTime;
+    private Date createTime;
 
     /**
      * 修改时间
      */
-    private LocalDateTime updateTime;
+    private Date updateTime;
 
     /**
      * 是否删除(0--正常 1--删除)
