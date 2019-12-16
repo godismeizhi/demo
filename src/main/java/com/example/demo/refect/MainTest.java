@@ -36,7 +36,5 @@ public class MainTest {
         for (Class class1 : clazzes) {
             System.out.println(class1);
         }
-
-
     }
 }
