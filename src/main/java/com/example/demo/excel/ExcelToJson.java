@@ -27,7 +27,12 @@ public class ExcelToJson {
 
             Map<String, Object> data = new HashMap<>();
             for (int i = 0; i < infoLine.size(); i++) {
-                data.put(infoTitle.get(i), infoLine.get(i));
+                if (i == 0) {
+                    data.put(infoTitle.get(i), Integer.valueOf(infoLine.get(i)));
+                } else {
+                    data.put(infoTitle.get(i), infoLine.get(i));
+                }
+
             }
             outputData.add(data);
         }
