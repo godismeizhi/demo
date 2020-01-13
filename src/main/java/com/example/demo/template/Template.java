@@ -1,8 +1,6 @@
 package com.example.demo.template;
 
-import org.apache.poi.util.StringUtil;
 import org.springframework.util.StringUtils;
-import sun.swing.StringUIClientPropertyKey;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -12,30 +10,36 @@ import java.util.Map;
 
 import java.util.List;
 
-public class Template1 {
+public class Template {
 
+    static SimpleDateFormat myFmt = new SimpleDateFormat("yyyyMMdd");
 
     public static void main(String[] args) throws Exception {
-
-        SimpleDateFormat myFmt = new SimpleDateFormat("yyyyMMddHHmmss");
 
         Map<String, List<List<String>>> resultMap = ExcelUtil.readExcel("F:\\deleteData\\data.xlsx");
         List<List<String>> infos = resultMap.get("Sheet1");
 
+        File file = new File("F:\\deleteData\\" + myFmt.format(new Date()));
+        if (!file.exists()) {
+            file.mkdir();
+        }
+
         String data = createTemplate(infos, 1);
-        FileWriter fw = new FileWriter("F:\\deleteData\\select_" + myFmt.format(new Date()) + ".sql");
+
+        FileWriter fw = new FileWriter("F:\\deleteData\\" + myFmt.format(new Date()) + "\\select.sql");
         fw.write(data);
         fw.flush();
 
         String data2 = createTemplate(infos, 2);
-        FileWriter fw2 = new FileWriter("F:\\deleteData\\delete_" + myFmt.format(new Date()) + ".sql");
+        FileWriter fw2 = new FileWriter("F:\\deleteData\\" + myFmt.format(new Date()) + "\\delete.sql");
         fw2.write(data2);
         fw2.flush();
     }
 
     private static String getTemplateSelect(String imei, String iccid, int i) {
 
-        String template = "#####  line:" + i + "  IMEI：" + imei + "  ICCID：" + iccid + "\n";
+        String template = "";
+        template += "#####  line:" + i + "  IMEI：" + imei + "  ICCID：" + iccid + "\n";
         template += "\n";
         template += "SELECT * FROM CAR_INFO WHERE IMEI = '" + imei + "';" + "\n";
         template += "SELECT * FROM FAMILY_ACCOUNT WHERE IMEI =  '" + imei + "'" + "\n";
@@ -73,7 +77,15 @@ public class Template1 {
 
     public static String createTemplate(List<List<String>> infos, int type) {
 
-        String template = "use tfso;" + "\n";
+        String template = "";
+
+        if (type == 1) {
+            template += "#####  " + myFmt.format(new Date()) + "查询sql";
+        } else {
+            template += "#####  " + myFmt.format(new Date()) + "删除sql";
+        }
+
+        template += "use tfso;" + "\n";
 
         for (int i = 0; i < infos.size(); i++) {
 
@@ -86,7 +98,6 @@ public class Template1 {
             }
 
             if (StringUtils.isEmpty(iccid)) {
-
                 System.out.println("=================参数错误====================");
                 return "";
             }
@@ -94,9 +105,9 @@ public class Template1 {
             template += "\n";
             template += "\n";
             if (type == 1) {
-                template += getTemplateSelect(imei, iccid, i + 1);
+                template += getTemplateSelect(imei.trim(), iccid.trim(), i + 1);
             } else {
-                template += getTemplateDelete(imei, iccid, i + 1);
+                template += getTemplateDelete(imei.trim(), iccid.trim(), i + 1);
             }
         }
         return template;
