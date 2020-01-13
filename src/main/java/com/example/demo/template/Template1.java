@@ -31,7 +31,6 @@ public class Template1 {
         FileWriter fw2 = new FileWriter("F:\\deleteData\\delete_" + myFmt.format(new Date()) + ".sql");
         fw2.write(data2);
         fw2.flush();
-
     }
 
     private static String getTemplateSelect(String imei, String iccid, int i) {
