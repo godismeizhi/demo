@@ -1,4 +1,4 @@
-package com.example.demo.autoconfig;
+package com.example.demo.config;
 
 public class DBClinet {
 
