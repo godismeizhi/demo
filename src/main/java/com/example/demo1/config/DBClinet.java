@@ -8,6 +8,11 @@ public class DBClinet {
 
         this.dbProperties = dbProperties;
     }
-    
+
+
+    private String getConfigInfo() {
+        return dbProperties.getDriveClass() == null ? "没有信息" : dbProperties.getDriveClass();
+    }
+
 
 }
