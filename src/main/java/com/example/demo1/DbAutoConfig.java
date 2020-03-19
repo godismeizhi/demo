@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableConfigurationProperties(DbProperties.class)
-@ConditionalOnClass(DBClinet.class)
+@ConditionalOnClass(DataBaseClinet.class)
 public class DbAutoConfig {
 
 
@@ -17,8 +17,8 @@ public class DbAutoConfig {
     private DbProperties dbProperties;
 
     @Bean
-    public DBClinet getDbClient() {
-        return new DBClinet(dbProperties);
+    public DataBaseClinet getDbClient() {
+        return new DataBaseClinet(dbProperties);
     }
 
 }

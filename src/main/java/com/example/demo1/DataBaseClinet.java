@@ -1,10 +1,10 @@
 package com.example.demo1;
 
-public class DBClinet {
+public class DataBaseClinet {
 
     private DbProperties dbProperties;
 
-    DBClinet(DbProperties dbProperties) {
+    DataBaseClinet(DbProperties dbProperties) {
 
         this.dbProperties = dbProperties;
     }
