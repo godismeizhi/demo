@@ -1,4 +1,4 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.example.demo.config.test.DbAutoConfig
+com.example.demo1.config.DbAutoConfig
 

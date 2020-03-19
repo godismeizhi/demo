@@ -8,7 +8,7 @@
         <version>2.1.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example.demo</groupId>
+    <groupId>com.example.demo1</groupId>
     <artifactId>config</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>demo</name>
