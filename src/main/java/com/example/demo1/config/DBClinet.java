@@ -10,7 +10,7 @@ public class DBClinet {
     }
 
 
-    private String getConfigInfo() {
+    public String getConfigInfo() {
         return dbProperties.getDriveClass() == null ? "没有信息" : dbProperties.getDriveClass();
     }
 
