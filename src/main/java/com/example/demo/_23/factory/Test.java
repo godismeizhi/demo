@@ -13,7 +13,5 @@ public class Test {
         Telephone telephone = phoneFactory.createPhone(TelephoneBrandEnum.GOOGLE);
 
         telephone.specilShow();
-
-
     }
 }
