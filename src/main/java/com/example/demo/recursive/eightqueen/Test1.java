@@ -8,7 +8,7 @@ public class Test1 {
     public static void main(String[] args) {
 
         AtomicInteger count = new AtomicInteger();
-        int n = 6;
+        int n = 8;
         Queen queens[] = new Queen[n];
         for (int i = 0; i < n; i++) {
             queens[0] = new Queen(i, 0);
@@ -28,7 +28,7 @@ public class Test1 {
             return;
         }
 
-        if (l == n || l > n) {
+        if (l >= n) {
             count.getAndIncrement();
             return;
         }
