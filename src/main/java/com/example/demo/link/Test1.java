@@ -4,6 +4,11 @@ import com.example.demo.common.LinkNode;
 
 public class Test1 {
 
+    /**
+     * 反转链表
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         LinkUtil.printLinkInfo(LinkUtil.createLink());

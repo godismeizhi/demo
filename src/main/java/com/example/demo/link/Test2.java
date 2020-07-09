@@ -5,6 +5,11 @@ import com.example.demo.common.LinkNode;
 
 public class Test2 {
 
+    /**
+     * 反转链表中间段
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         LinkNode linkNode = LinkUtil.createLink();

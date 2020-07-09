@@ -2,9 +2,14 @@ package com.example.demo.recursive;
 
 public class Test1 {
 
+    /**
+     * 字符串解码
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
-        int n = new Test1().numDecodings("11");
+        int n = new Test1().numDecodings("112312");
 
         System.out.println(n);
 

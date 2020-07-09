@@ -3,7 +3,7 @@ package com.example.demo.recursive;
 public class Test2 {
 
     /**
-     * 翻转字符串
+     * 反转字符串
      *
      * @param args
      */
